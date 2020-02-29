@@ -1,3 +1,3 @@
-<view>
-  New Component
+<view class="t-tabpanel-content">
+    <slot></slot>
 </view>

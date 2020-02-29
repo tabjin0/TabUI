@@ -1,0 +1,3 @@
+<view class="t-class t-class-self t-self-class t-icon {{name===''?'':'t-icon-'+name}}"
+      style="{{size?'font-size:'+size+'rpx;':''}}{{color?'color:'+color+';':''}}">
+</view>

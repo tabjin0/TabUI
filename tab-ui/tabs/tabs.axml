@@ -1,27 +1,37 @@
 <!--标签页组件-->
 <view class="t-tabs t-class-tabs t-tabs-class {{'t-placement-'+placement}} {{animated?'t-aminmated':''}} {{placement=='left'||placement=='right'?'t-tabs-vertical':'t-tabs-horizontal'}} {{scrollable?'t-tabs-scroll':''}}">
-  <scroll-view
-          scroll-x="{{placement=='top'||placement=='bottom' && scrollable}}"
-          scroll-y="{{placement=='left'||placement=='right' && scrollable}}"
-          scroll-top="{{transformY}}"
-          scroll-bottom="{{transformX}}"
-          scroll-with-animation
-          class="t-tabsscroll t-class-header t-header-class {{hasLine?'t-tabs-header-line t-class-header-line t-header-line-class':''}}">
-    <view class="t-tabs-header">
-      <view class="t-tabs-item {{equalWidth?'t-tabs-equal-width':'t-tabs-unequal-width'}} {{item.key===activeKey?'t-class-active t-active-class t-tabs-active':'t-class-inactive t-inactive-class t-tabs-inactive'}} {{'t-tab-image-placement-'+item.picPlacement}}">
-        <image class="t-tab"></image>
-        <t-icon></t-icon>
-      </view>
+    <scroll-view
+            scroll-x="{{placement=='top'||placement=='bottom' && scrollable}}"
+            scroll-y="{{placement=='left'||placement=='right' && scrollable}}"
+            scroll-top="{{transformY}}"
+            scroll-bottom="{{transformX}}"
+            scroll-with-animation
+            class="t-tabsscroll t-class-header t-header-class {{hasLine?'t-tabs-header-line t-class-header-line t-header-line-class':''}}">
+        <view class="t-tabs-header">
+            <view class="t-tabs-item {{equalWidth?'t-tabs-equal-width':'t-tabs-unequal-width'}} {{item.key===activeKey?'t-class-active t-active-class t-tabs-active':'t-class-inactive t-inactive-class t-tabs-inactive'}} {{'t-tab-image-placement-'+item.picPlacement}}">
+                <image a:if="{{item.image.activeImage || item.image.defaultImage }}"
+                       src="{{item.key===activeKey?item.image.activeImage:item.image.defaultImage}}"
+                       class="t-tab-image t-class-tabimage t-tabimage-class"></image>
+                <t-icon></t-icon>
+                {{item.tab}}
+                <view class="t-tab-line {{item.key===activeKey?'t-class-line t-line-class':''}} {{animatedForLine?'t-line-aminmated':''}}"
+                      a:if="{{hasLine}}" style="background:{{item.key===activeKey?activeColor:inactiveColor}}"></view>
+            </view>
+        </view>
+    </scroll-view>
+    <view a:if="{{!swipeable}}" class="t-tabpanel-content t-class-content t-content-class"
+          style="{{placement=='top'||placement=='bottom' ? 'margin-left:'+ -100 *currentIndex +'%;':'transform:translate(0,'+ -100 * currentIndex +'%) translateZ(0px);'}}">
+        <view class="t-tabpanel {{item.key===activeKey?'l-tabpanel-active':'l-tabpanel-inactive'}}" a:for="{{tabList}}"
+              a:key="{{item.key}}"
+              style="{{placement=='left'||placement=='right'?'position:absolute;width:100%;height:100%;transform:translate(0,'+ 100 * index +'%) translateZ(0px);':''}}">
+            <slot name="{{item.key}}"></slot>
+        </view>
     </view>
-  </scroll-view>
-  <view class="t-tabpanel-content">
-    <view class="t-tabpanel">
-      <slot name="{{item.key}}"></slot>
-    </view>l
-  </view>
-  <swiper class="t-tabpanel-content">
-    <swiper-item>
-      <slot name="{{item.key}}"></slot>
-    </swiper-item>
-  </swiper>
+    <swiper a:else class="t-tabpanel-content t-tabpanel-swiper t-class-content t-content-class"
+            onChange="swiperChange" current="{{currentIndex}}" vertical="{{placement=='left'||placement=='right'}}">
+        <swiper-item class="t-tabpanel {{item.key===activeKey?'t-tabpanel-active':''}}" a:for="{{tabList}}"
+                     a:key="{{item.key}}">
+            <slot name="{{item.key}}"></slot>
+        </swiper-item>
+    </swiper>
 </view>
