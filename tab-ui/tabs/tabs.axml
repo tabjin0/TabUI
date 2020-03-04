@@ -1,4 +1,7 @@
-<!--标签页组件-->
+<!-- 标签页组件 -->
+<!-- 标签页需tabs和tabpanel两个组件关联使用。 -->
+<!-- tabpanel用于设置每一个标签的名称、以及标签下对应的内容； -->
+<!-- tabs包裹在所有tabpanel最外层，tabs下的所有tabpanel属于同一个标签页 -->
 <view class="t-tabs t-class-tabs t-tabs-class {{'t-placement-'+placement}} {{animated?'t-aminmated':''}} {{placement=='left'||placement=='right'?'t-tabs-vertical':'t-tabs-horizontal'}} {{scrollable?'t-tabs-scroll':''}}">
     <scroll-view
             scroll-x="{{placement=='top'||placement=='bottom' && scrollable}}"
