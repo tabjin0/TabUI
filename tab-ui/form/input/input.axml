@@ -1,0 +1,45 @@
+<!-- 基于原生组件Input封装，用于接收单行文本，支持文本、密码、数字、身份证等类型的输入 -->
+<label class="form-item {{disabled?'disabled':''}} t-class form-item-{{labelLayout}}"
+       style="width:{{width}}rpx;">
+    <view class="mask" a:if="{{disabled}}"></view>
+    <view class="row" hidden="{{showRow?'':'hidden'}}" style="width:{{width}}rpx;"></view>
+    <view a:if="{{label && !labelCustom}}" hidden="{{hideLabel}}"
+          class="form-label t-label-class form-label-{{labelLayout}}"
+          style="{{labelLayout !== 'top' ? 'width:' + labelWidth + 'rpx;':''}} height:{{labelLayout == 'top' ? labelWidth + 'rpx;': ''}}">
+        <text>
+            <text a:if="{{required}}" class="text-require">*</text>
+            {{label}}
+            <text a:if="{{colon}}">：</text>
+        </text>
+    </view>
+    <!-- 当label没有输入时，可自定义Input组件左边部分 -->
+    <view a:else hidden="{{hideLabel}}"
+          class="form-label t-label-class form-label-{{labelLayout}}"
+          style="{{labelLayout !== 'top' ? 'width:' + labelWidth + 'rpx;':''}} height:{{labelLayout == 'top' ? labelWidth + 'rpx;': ''}}">
+        <slot name="left"></slot>
+    </view>
+
+    <!-- 小程序表单组件 -->
+    <input class="input {{hideLabel?'hideLabel':''}}"
+           value="{{value}}"
+           type="{{type}}"
+           password="{{type==='password'}}"
+           placeholder="{{placeholder}}"
+           maxlength="{{maxlength}}"
+           disabled="{{disabled}}"
+           onInput="handleInputChange"
+           onFocus="handleInputFocus"
+           onBlur="handleInputBlur"
+           onConfirm="handleInputConfirm"/>
+    <!--  注意一定要将input后面的/收尾  -->
+    <view a:if="{{clear&&value}}" class="close" onTap="onClearTap">
+        <view class="close-icon">
+            <t-icon name="close" color="#fff" size="16"></t-icon>
+        </view>
+    </view>
+
+    <!-- 自定义Input组件右边部分 -->
+    <slot name="right"></slot>
+
+    <t-error-tip a:if="{{errorText}}" errorText="{{errorText}}"></t-error-tip>
+</label>

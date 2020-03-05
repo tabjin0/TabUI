@@ -1,0 +1,7 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-icon": "/tab-ui/base/icon/icon",
+    "t-error-tip": "/tab-ui/interaction/error-tip/error-tip"
+  }
+}
