@@ -1,0 +1,25 @@
+.t-tip-container-class {
+    width: inherit;
+    height: 56rpx;
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+.t-tip-border-left {
+    flex-direction: row;
+}
+
+.t-tip-border-right {
+    flex-direction: row-reverse;
+}
+
+.t-tip-vertical-line-class {
+    width: 12rpx;
+    height: 100%;
+}
+
+.t-tip-text {
+    margin: 12rpx;
+}
+

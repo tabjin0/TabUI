@@ -1,0 +1,17 @@
+<view class="t-progress">
+    <view class="t-progress {{'t-progress-' + progressLayout}} t-progress-left">
+<!--        <view class="t-progress-">{{percent}}</view>-->
+    </view>
+
+    <progress class="progress"
+              percent="{{percent}}"
+              show-info="{{showInfo}}"
+              stroke-width="strokeWidth"
+              activeColor="{{activeColor}}"
+              backgroundColor="{{backgroundColor}}"
+              active="{{active}}">
+    </progress>
+
+</view>
+
+

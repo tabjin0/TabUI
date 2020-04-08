@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "t-badge": "/tab-ui/view/badge/badge",
+    "t-segment-item": "/tab-ui/navigation/segment-item/segment-item",
+    "t-dd-icon": "/tab-ui/base/icon/icon"
+  }
+}

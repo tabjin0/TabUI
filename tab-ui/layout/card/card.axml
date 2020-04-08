@@ -1,10 +1,12 @@
 <!-- 基础卡片布局 -->
 <view class="t-class card-container {{'card-container-' + type}} {{'card-container-' + type + '-' + position}} {{full?'card-container-full':'card-container-unfull'}}">
-    <block a:if="{{type === 'primary'}} || type === 'cover'">
+    <!--  primary/cover模式  -->
+    <block a:if="{{type === 'primary' || type === 'cover'}}">
+        <!-- 非纯文本展示图片 -->
         <image a:if="{{!plainText}}"
                src="{{image}}"
                class="t-img-class {{full?'cover-img-full':'cover-img-unfull'}} {{'card-img-'+ type }} {{'card-img-' + type + '' + position }}"
-               mode="aspectFill"
+               mode="widthFix"
                lazy-load="{{true}}">
         </image>
         <!-- 卡片内容 -->
@@ -14,10 +16,11 @@
             <slot></slot>
         </view>
     </block>
+    <!--  avatar模式  -->
     <block a:if="{{type === 'avatar'}}">
         <view class="card-avatar-top">
             <view class="card-avatar-left">
-                <image src="{{image}}" class="t-img-class {{'card-img-' + type }}" mode="scaleToFill"
+                <image src="{{image}}" class="t-img-class {{'card-img-' + type }}" mode="aspectFit"
                        lazy-load="{{true}}"></image>
                 <view class="card-avatar">
                     <text class="t-title-class card-title {{'card-title-' + type}}">{{title}}</text>

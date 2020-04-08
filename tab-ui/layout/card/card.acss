@@ -1,6 +1,6 @@
 .card-container {
     margin: 0 auto;
-    padding: 30rpx;
+    /*padding: 30rpx;*/
     box-sizing: border-box;
     background: #fff;
     display: flex;

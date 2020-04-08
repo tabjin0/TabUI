@@ -1,0 +1,10 @@
+
+.t-progress-left {
+    display: flex;
+
+}
+
+.progress {
+    width: 90%;
+    margin: 0 auto;
+}

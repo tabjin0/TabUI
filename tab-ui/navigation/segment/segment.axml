@@ -1,0 +1,62 @@
+<!--左/右 => 垂直，否则水平-->
+<view class="t-tabs t-class {{'t-placement-' + placement }} {{ placement == 'left' || placement == 'right' ? 't-tabs-vertical' : 't-tabs-horizontal' }} {{ scrollable ? 't-tabs-scroll' : '' }}"
+      style="{{ width ? 'width:' + width + 'rpx;' : '' }}{{ height ? 'height:' + height + 'rpx' : '' }}">
+    <scroll-view scroll-x="{{ (placement == 'top' || placement == 'bottom') && scrollable }}"
+                 scroll-y="{{ (placement == 'left' || placement == 'right') && scrollable }}"
+                 scroll-top="{{transformY}}" scroll-left="{{transformX}}" scroll-with-animation
+                 class="t-tabsscroll t-header-class {{ hasLine ? 't-tabs-header-line t-header-line-class' : '' }}"
+                 style="{{width?'width:'+width+'rpx;':''}}{{height?'height:'+height+'rpx':''}}">
+        <view class="t-tabs-header {{ ( even && equalWidth ) ? 't-tabs-equal-header' : 't-tabs-unequal-header' }}">
+            <block a:for="{{tabItems}}">
+                <!--                item.cell.key {{item.cell.key}}-->
+                <!--                activeKey {{activeKey}}-->
+                <!--有选项卡子项-->
+                <view a:if="{{item.cell.cell.tab}}"
+                      class="t-tabs-item {{(even && equalWidth) ? 't-tabs-equal-header' : 't-tabs-unequal-header' }} {{ item.cell.key === activeKey ? 't-active-class t-tabs-active' : 't-inactive-class t-tabs-inactive' }}{{ 't-tab-image-placement-' + item.cell.picPlacement }}"
+                      style="color:{{ item.cell.key === activeKey ? activeColor : inactiveColor }};{{ itemWidth ? 'width:' + itemWidth + 'rpx':''}}{{ itemHeight ? 'height:' + itemHeight + 'rpx' : '' }}"
+                      data-key="{{item.cell.key}}" data-index="{{index}}"
+                      onTap="handleChange">
+                    <!-- 有徽章 -->
+                    <t-badge a:if="{{(item.cell.badgeCount > 0 || item.cell.dotBadge)}}"
+                             count="{{item.cell.badgeCount}}"
+                             dot="{{item.cell.dotBadge}}" maxCount="{{item.cell.badgeMaxCount}}"
+                             countType="{{item.cell.badgeCountType}}">
+                        <template is="tab-item"
+                                  data="{{item,activeKey,hasLine,activeColor,inactiveColor,animatedForLine}}"></template>
+                    </t-badge>
+                    <!--无徽章-->
+                    <template a:else is="tab-item"
+                              data="{{item,activeKey,hasLine,activeColor,inactiveColor,animatedForLine}}"></template>
+                    <!--下划线-->
+                    <view a:if="{{hasLine}}"
+                          class="t-tab-line {{ item.cell.key === activeKey ? 't-line-class' : '' }}{{ animatedFoeLine ? 't-line-aminmated' : '' }}"
+                          style="background:{{ item.cell.key === activeKey ? activeColor : inactiveColor}}">下划线
+                    </view>
+                </view>
+                <!--没有选项卡子项-->
+                <view a:else
+                      class="t-tabs-item {{ ( even && equalWidth ) ? 't-tabs-equal-width' : 't-tabs-unequal-width'}} {{item.cell.key === activeKey ? 't-active-class t-tabs-active':'t-inactive-class t-tabs-inactive'}} {{'t-tab-image-placement-'+picPlacement}}"
+                      style="color:{{ item.cell.key === activeKey ? activeColor : inactiveColor }}"
+                      data-key="{{item.cell.key}}" data-index="{{index}}" onTap="handleChange">
+                    <!-- <slot name="{{item.cell.key}}"></slot>-->
+                    <slot name="segment-item" item="{{item}}"></slot>
+                    <!--下划线-->
+                    <view a:if="{{hasLine}}"
+                          class="t-tab-line {{ item.cell.key === activeKey ? 't-line-class' : '' }} {{ animatedForLine ? 't-line-aminimated' : '' }}"
+                          style="background:{{ item.cell.key === activeKey ? activeColor : inactiveColor }}">
+                    </view>
+                </view>
+            </block>
+        </view>
+    </scroll-view>
+</view>
+
+<!--选项卡子项模板-->
+<template name="tab-item">
+    <image a:if="{{ item.cell.image.activeImage || item.cell.image.defaultImage }}"
+           src="{{ item.cell.key === activeKey ? item.cell.image.activeImage : item.cell.image.defaultImage }}"
+           class="t-tab-image t-tab-image-class"></image>
+    <t-dd-icon a:if="{{item.cell.icon}}" color="{{ item.cell.key === activeKey ? activeColor : inactiveColor }}"
+               name="{{item.cell.icon}}" size="{{item.cell.iconSize}}"></t-dd-icon>
+    {{item.cell.tab}}
+</template>

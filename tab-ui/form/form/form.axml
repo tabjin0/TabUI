@@ -1,0 +1,11 @@
+<view class="t-form-container-class">
+    <slot></slot>
+</view>
+<view class="t-form-btn-class">
+    <view class="t-form-submit-class" onTap="submit">
+        <slot name="submit"></slot>
+    </view>
+    <view class="t-form-reset-class" onTap="reset">
+        <slot name="reset"></slot>
+    </view>
+</view>

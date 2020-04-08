@@ -1,0 +1,255 @@
+.t-tabs {
+    overflow: auto;
+    width: 100%
+}
+
+.t-tabs-header {
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    /*justify-content: space-around;*/
+    align-items: center;
+}
+
+.t-tabs-header .t-tabs-item {
+    font-size: 28rpx;
+    text-align: center;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.t-tabs-header .t-icon-active, .t-tabs-header .t-tabs-active {
+    color: #333;
+}
+
+.t-tabs-header .t-icon-active, .t-tabs-header .t-icon-inactive {
+    font-size: 28rpx;
+}
+
+.t-tabs-header .t-icon-inactive, .t-tabs-header .t-tabs-inactive {
+    color: #bbb;
+}
+
+.t-tabs-header .t-tabsitems-row {
+    flex-direction: row;
+}
+
+.t-tabs-header .t-tabsitems-row .t-icon-active, .t-tabs-header .t-tabsitems-row .t-icon-inactive {
+    margin-right: 10rpx;
+}
+
+.t-tabs-header .t-tabsitems-row-reverse {
+    flex-direction: row-reverse;
+}
+
+.t-tabs-header .t-tabsitems-row-reverse .t-icon-active, .t-tabs-header .t-tabsitems-row-reverse .t-icon-inactive {
+    margin-left: 10rpx;
+}
+
+.t-placement-bottom, .t-placement-top {
+    height: 80rpx;
+}
+
+.t-placement-bottom .t-tabs-header, .t-placement-top .t-tabs-header {
+    height: 100%;
+}
+
+.t-placement-bottom .t-tabs-header .t-tabs-item, .t-placement-top .t-tabs-header .t-tabs-item {
+    min-height: 100%;
+}
+
+.t-placement-right {
+    flex-direction: row-reverse;
+}
+
+.t-placement-bottom {
+    flex-direction: column-reverse;
+}
+
+.t-tabs-vertical .t-tabpanel-swiper {
+    height: initial;
+}
+
+.t-tabs-scroll.t-tabs-horizontal .t-tabs-header {
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+}
+
+.t-tabs-scroll.t-tabs-horizontal .t-tabs-header .t-tabs-item {
+    overflow: visible;
+}
+
+.t-tabs-vertical {
+    width: 160rpx;
+}
+
+.t-tabs-vertical .t-tabsscroll {
+    width: 160rpx;
+    box-sizing: border-box;
+}
+
+.t-tabs-vertical .t-tabs-equal-header {
+    height: 100%;
+}
+
+.t-tabs-vertical .t-tabs-header {
+    width: 100%;
+    flex-direction: column;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    overflow-x: hidden;
+}
+
+.t-tabs-vertical .t-tabs-header .t-tabs-item.t-tabs-active {
+    background: #fff;
+}
+
+.t-tabs-vertical .t-tabs-header .t-tabs-unequal-width {
+    height: 80rpx;
+}
+
+.t-tabs-vertical .t-tabs-header .t-tabs-item {
+    overflow: visible;
+    background: #f6f8fa;
+    width: 100%;
+}
+
+.t-tabs-item {
+    position: relative;
+}
+
+.t-tab-line {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background: #000;
+}
+
+.t-line-class {
+    height: 4px;
+    width: 60%;
+}
+
+.t-tabs-horizontal .t-tabs-equal-width {
+    flex: 1;
+}
+
+.t-tabs-horizontal .t-tabs-unequal-width {
+    padding: 0 20rpx;
+}
+
+.t-tabs-horizontal .t-tabsscroll {
+    height: 100%;
+    box-sizing: border-box;
+}
+
+.t-tabs-horizontal .t-tab-line {
+    height: 4rpx;
+    width: 0;
+    left: 100%;
+    right: 0;
+    margin: 0 auto;
+}
+
+.t-tabs-horizontal .t-line-aminmated {
+    transition: .2s all linear;
+}
+
+.t-tabs-horizontal .t-tabs-active .t-tabs-item ~ .t-tabs-item .t-tab-line {
+    left: 0;
+}
+
+.t-tabs-horizontal .t-tabs-active .t-tab-line {
+    width: 100%;
+    left: 0;
+}
+
+.t-tabs-horizontal .t-tabs-active .t-line-aminmated {
+    transition-delay: .1s;
+}
+
+.t-placement-top .t-tab-line {
+    bottom: 0;
+    transform: translateY(-100%);
+}
+
+.t-placement-top .t-tabs-header-line {
+    border-bottom: 1px solid #f3f3f3;
+}
+
+.t-placement-bottom .t-tab-line {
+    top: 0;
+}
+
+.t-placement-bottom .t-tabs-header-line {
+    border-top: 1px solid #f3f3f3;
+}
+
+.t-tabs-vertical .t-tab-line {
+    width: 6rpx;
+    height: 0;
+    border-radius: 0 6rpx 6rpx 0;
+    top: 0;
+    margin: auto 0;
+}
+
+.t-tabs-vertical .t-line-aminmated {
+    transition: .2s all linear;
+}
+
+.t-tabs-vertical .t-tabs-active .t-tab-line {
+    height: 40rpx;
+}
+
+.t-tabs-vertical .t-tabs-active .t-line-aminmated {
+    transition-delay: .1s;
+}
+
+.t-tabs-vertical .t-tabs-active.t-tabs-item ~ .t-tabs-item .t-tab-line {
+    height: 0;
+    top: 0;
+}
+
+.t-placement-left .t-tab-line {
+    right: auto;
+}
+
+.t-placement-left .t-tabs-header-line {
+    border-left: 1px solid #f3f3f3;
+}
+
+.t-placement-right .t-tab-line {
+    right: 0;
+    left: auto;
+}
+
+.t-placement-right .t-tabs-header-line {
+    border-right: 1px solid #f3f3f3;
+}
+
+.t-tab-image {
+    width: 100rpx;
+    height: 100rpx;
+}
+
+.t-tab-image-placement-top {
+    flex-direction: column;
+}
+
+.t-tab-image-placement-bottom {
+    flex-direction: column-reverse;
+}
+
+.t-tab-image-placement-left {
+    flex-direction: row;
+}
+
+.t-tab-image-placement-right {
+    flex-direction: row-reverse;
+}
+
+.t-tabs-header .badge-view {
+    top: -20rpx;
+}

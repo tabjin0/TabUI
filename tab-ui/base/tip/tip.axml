@@ -1,0 +1,5 @@
+<view class="t-tip-container-class t-tip-border-{{tipLayout}}">
+    <view class="t-tip-vertical-line-class" style="background:{{lineColor?lineColor:'#49a9ee' + ';'}}"></view>
+    <text class="t-tip-text" style="font-size:{{fontSize?fontSize:22}}rpx;">{{text?text:''}}</text>
+    <slot name="right"></slot>
+</view>
