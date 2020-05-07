@@ -10,6 +10,10 @@ Component({
         onPopupChange: (e) => console.log(e)
     },
     didMount() {
+        this._init();
+        console.log(`dd:`, 123);
+        console.log(`dd:`, dd);
+        console.log(`dd:`, 123);
     },
     didUpdate() {
     },
@@ -17,7 +21,27 @@ Component({
     },
     methods: {
         _init() {
-
+            dd.tabjin = dd.tabjin || {};
+            dd.tabjin.showPopup = (options) => {
+                const {
+                    zIndex = 99,
+                    animation = 'show',
+                    contentAlign = 'center',
+                    locked = false
+                } = {...options};
+                this.setData({
+                    zIndex,
+                    animation,
+                    contentAlign,
+                    locked,
+                    show: true
+                });
+            };
+            dd.tabjin.hidePopup = () => {
+                this.setData({
+                    show: false
+                })
+            }
         },
 
         /**
@@ -32,13 +56,14 @@ Component({
          */
         onPopupTap() {
             console.log(`onPopupTap: `);
-            // let detail = true;
-            // let option = {bubbles: true, composed: true};
-            // if (this.data.locked !== true) {
-            //     this.setData({
-            //         show: !this.data.show
-            //     });
-            // }
+            let detail = true;
+            let option = {bubbles: true, composed: true};
+            if (this.data.locked !== true) {
+                this.setData({
+                    show: !this.data.show
+                });
+            }
+            this._popData(this.data);
             //
             // this.triggerEvent('lintap', detail, option);
         },
@@ -47,8 +72,8 @@ Component({
             console.log(`doNothingTap`)
         },
 
-        _popData() {
-            this.props.onPopupChange();
+        _popData(params) {
+            this.props.onPopupChange(params);
         }
     },
 

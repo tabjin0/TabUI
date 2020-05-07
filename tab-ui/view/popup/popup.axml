@@ -4,9 +4,7 @@
     <view class="container-bg tabui-bg-class"></view>
     <view class="popup-content {{ show ? contentAlign : '' }} popup-fade-{{ show ? contentAlign : '' }}-active-{{ animation }}"
           onTap="onPopupTap">
-        123456789
         <view class="" catchTap="doNothingTap">
-          fhdskfhsdkj
             <slot></slot>
         </view>
     </view>
