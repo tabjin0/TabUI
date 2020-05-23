@@ -4,7 +4,8 @@
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0
+    bottom: 0;
+    /*background-color: #00A854;*/
 }
 
 .popup-show {
@@ -147,4 +148,16 @@
         transform: translate3d(0, 0, 0);
         opacity: 1
     }
+}
+
+.view-true {
+    width: 200rpx;
+    height: 200rpx;
+    background-color: red;
+}
+
+.view {
+    width: 200rpx;
+    height: 200rpx;
+    background-color: green;
 }

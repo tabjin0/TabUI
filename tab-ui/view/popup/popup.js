@@ -11,16 +11,15 @@ Component({
     },
     didMount() {
         this._init();
-        console.log(`dd:`, 123);
-        console.log(`dd:`, dd);
-        console.log(`dd:`, 123);
     },
-    didUpdate() {
+    didUpdate(prevProps, prevData) {
+        this._init();
     },
     didUnmount() {
     },
     methods: {
         _init() {
+            // console.log(`popup init`);
             dd.tabjin = dd.tabjin || {};
             dd.tabjin.showPopup = (options) => {
                 const {
@@ -29,6 +28,7 @@ Component({
                     contentAlign = 'center',
                     locked = false
                 } = {...options};
+
                 this.setData({
                     zIndex,
                     animation,
@@ -37,6 +37,7 @@ Component({
                     show: true
                 });
             };
+
             dd.tabjin.hidePopup = () => {
                 this.setData({
                     show: false
@@ -48,14 +49,19 @@ Component({
          * 阻止滑动
          */
         doNothingMove() {
+            console.log(`doNothingMove`);
+        },
 
+        doBg() {
         },
 
         /**
          * 点击事件
          */
         onPopupTap() {
-            console.log(`onPopupTap: `);
+            // if (!this.data.show) {
+            //     this.props2Data();
+            // }
             let detail = true;
             let option = {bubbles: true, composed: true};
             if (this.data.locked !== true) {
@@ -64,8 +70,8 @@ Component({
                 });
             }
             this._popData(this.data);
-            //
-            // this.triggerEvent('lintap', detail, option);
+
+
         },
 
         doNothingTap() {
@@ -76,6 +82,4 @@ Component({
             this.props.onPopupChange(params);
         }
     },
-
-
 });
