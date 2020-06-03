@@ -35,7 +35,7 @@
 <!--列表左边部分-->
 <template name="cell-left-main">
     <!--有图片-->
-    <image a:if="{{image}}" src="{{image}}" mode="aspectFit|aspectFill|widthFix" lazy-load="true"
+    <image a:if="{{image}}" src="{{image}}" mode="{{imageMode}}" lazy-load="true"
            class="t-image t-image-class"></image>
     <!--有图标-->
     <t-dd-icon a:if="{{icon}}" name="{{icon}}" size="{{iconSize}}" color="{{iconColor}}"

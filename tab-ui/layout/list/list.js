@@ -1,5 +1,3 @@
-import {Navigate} from "../../../utils/native-api/interface/navigate";
-
 Component({
     mixins: [],
     data: {},
@@ -8,6 +6,7 @@ Component({
         iconColor: '#3963BC,',// 列表组件中icon的颜色
         iconSize: '28',// 列表组件中icon的大小
         image: '',// 列表组件中图片资源
+        imageMode: 'aspectFit',// aspectFit|aspectFill|widthFix
         title: '',// 列表组件中左侧文本的内容
         desc: String,// 列表组件中左侧描述文本的内容
         // 标签相关
@@ -33,6 +32,7 @@ Component({
         onListDataChange: (e) => console.log('e', e),
     },
     didMount() {
+        console.log(`this.props`, this.props);
     },
     didUpdate() {
     },
