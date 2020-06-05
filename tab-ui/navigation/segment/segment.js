@@ -25,12 +25,12 @@ Component({
         onTabChange: (e) => console.log('onTabChange e:', e),
     },
     didMount() {
-        console.log('segment didMount this.data.tabList:', this.props.tabList);
+        // console.log('segment didMount this.data.tabList:', this.props.tabList);
         this.initTabs(this.props.tabList);
     },
     didUpdate() {
-        console.log('segment didUpdate this.data.tabList:', this.props.tabList);
-        console.log('segment didUpdate this.data.tabItems:', this.data.tabItems);
+        // console.log('segment didUpdate this.data.tabList:', this.props.tabList);
+        // console.log('segment didUpdate this.data.tabItems:', this.data.tabItems);
         this.initTabs(this.props.tabList);
     },
     didUnmount() {
@@ -54,7 +54,7 @@ Component({
         },
 
         handleChange(e) {
-            console.log('handleChange e:', e);
+            // console.log('handleChange e:', e);
             this.setData({
                 activeKey: e.currentTarget.dataset.index
             });
