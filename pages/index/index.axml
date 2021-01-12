@@ -1,4 +1,23 @@
-<view>
-  this is a blank page
-  <t-icon name="setting"></t-icon>
+<view class="">在线图标</view>
+<view style="display: flex;flex-direction: row;flex-wrap: wrap;">
+    <block a:for="{{list}}">
+        <view class="" style="width: 33%;text-align: center;margin-top: 20rpx;">
+            <content-card text="{{item.text}}">
+                <tab-icon name="{{item.name}}"></tab-icon>
+            </content-card>
+        </view>
+    </block>
 </view>
+
+<view class="">设置图标大小</view>
+<view class="" style="display: flex;flex-direction: row;flex-wrap: wrap;">
+    <block a:for="{{list2}}">
+        <view class="" style="width: 33%;text-align: center;margin-top: 20rpx;">
+            <content-card text="尺寸 {{item.size}}">
+                <tab-icon name="{{item.name}}" size="{{item.size}}" color="red"></tab-icon>
+            </content-card>
+        </view>
+    </block>
+</view>
+
+

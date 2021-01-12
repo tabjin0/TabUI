@@ -1,35 +1,30 @@
 Page({
-  onLoad(query) {
-    // 页面加载
-    console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
-  },
-  onReady() {
-    // 页面加载完成
-  },
-  onShow() {
-    // 页面显示
-  },
-  onHide() {
-    // 页面隐藏
-  },
-  onUnload() {
-    // 页面被关闭
-  },
-  onTitleClick() {
-    // 标题被点击
-  },
-  onPullDownRefresh() {
-    // 页面被下拉
-  },
-  onReachBottom() {
-    // 页面被拉到底部
-  },
-  onShareAppMessage() {
-    // 返回自定义分享信息
-    return {
-      title: 'My App',
-      desc: 'My App description',
-      path: 'pages/index/index',
-    };
-  },
+    data: {
+        list: [
+            {name: 'coupon', text: '优惠券'},
+            {name: 'edit', text: '编辑'},
+            {name: 'like', text: '喜欢'},
+            {name: 'create', text: '创作'},
+            {name: 'glass', text: '眼睛'},
+            {name: 'eastereggs', text: '彩蛋'},
+            {name: 'safe', text: '安全'},
+            {name: 'help', text: '帮助'},
+        ],
+        list2: [
+            {name: 'coupon', text: '优惠券', size: 30},
+            {name: 'edit', text: '编辑', size: 50},
+            {name: 'like', text: '喜欢', size: 80},
+        ]
+    },
+
+    onLoad(query) {
+        // 页面加载
+        console.info(`Page onLoad with query: ${JSON.stringify(query)}`);
+    },
+    onReady() {
+        // 页面加载完成
+    },
+    onShow() {
+        // 页面显示
+    }
 });

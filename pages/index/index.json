@@ -1,5 +1,6 @@
 {
   "usingComponents": {
-    "t-icon": "/tab-ui/icon/icon"
+    "content-card": "/components/content-card/content-card",
+    "tab-icon": "/tab-ui/icon/icon"
   }
 }
