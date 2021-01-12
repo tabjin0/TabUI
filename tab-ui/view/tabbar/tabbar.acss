@@ -1,0 +1,84 @@
+.tabui-tabbar {
+    position: relative;
+    height: 110rpx;
+    width: 750rpx;
+    background: #ffffff;
+    display: flex;
+    flex-direction: row;
+    background-position: center center;
+    background-size: 100% 100%;
+    padding-bottom: env(safe-area-inset-bottom);
+}
+
+.tabui-tabbar-bottom {
+    position: fixed !important;
+    bottom: 0;
+    left: 0;
+    right: 0;
+}
+
+.tabui-tabbar-outer-border {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    height: 1rpx;
+    background-color: #f6f6f6;
+    box-shadow: 0 -1px 3px 1px #f6f6f6;
+}
+
+.tabui-tabbar-item {
+    position: relative;
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: center;
+}
+
+.tabui-tabbar-item-circle {
+    width: 120rpx;
+    height: 60rpx;
+    border-radius: 200rpx 200rpx 0 0;
+    border-bottom: none;
+    background: #fff;
+    position: absolute;
+    top: -40rpx;
+    left: 50%;
+    box-shadow: 0 -1px 1px 0 #f6f6f6;
+}
+
+.tabui-tabbar-item-image {
+    margin: 0 auto;
+    width: 64rpx;
+    height: 64rpx;
+}
+
+.tabui-tabbar-item view {
+    font-size: 24rpx;
+}
+
+.tabui-tabbar-reddot {
+    width: 20rpx;
+    height: 20rpx;
+    background: 50%;
+    border-radius: 50%;
+    position: absolute;
+    font-size: 18rpx;
+    color: #fff;
+    top: 10rpx;
+    margin-left: 25rpx;
+    box-sizing: border-box;
+}
+
+.tabui-tabbar-middle-circle {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    position: absolute;
+    top: -30rpx;
+    left: 50%;
+}

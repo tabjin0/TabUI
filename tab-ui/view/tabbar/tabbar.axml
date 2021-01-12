@@ -1,0 +1,36 @@
+<view a:if="{{show}}"
+      class="tabui-tabbar tabui-tabbar-{{position}}"
+      style='background:{{backgroundImage ? "url(" + backgroundImage + ")" : backgroundColor}};z-index: {{zIndex}};'>
+    <view class="tabui-tabbar-outer-border"
+          style="background:{{borderStyle}}"></view>
+    <view a:for="{{list}}"
+          a:for-index="idx"
+          a:for-item="item"
+          key="{{item.key}}"
+          class="tabui-tabbar-item {{item.style === 'circle' ? 'circle' : ''}}"
+          data-index="{{idx}}"
+          data-path="{{item.pagePath}}"
+          onTap="tapTabBarItem">
+        <!-- 圆形 -->
+        <view a:if="{{item.style === 'circle'}}"
+              class="tabui-tabbar-item-circle"
+              style="width: {{item.iconSize*1.2}}rpx;height: {{item.iconSize*1.2}}rpx;margin-left:-{{0.5*item.iconSize*1.2}}rpx;">
+        </view>
+
+        <!-- 非圆形 -->
+        <image a:if="{{item.style !== 'circle'}}"
+               class="tabui-tabbar-item-image"
+               style="height:{{item.iconSize}}rpx; width:{{item.iconSize}}rpx;color:{{active == idx ? activeColor : color}}"
+               src="{{active == idx ? item.activeIconPath : item.iconPath}}"
+               mode="{{imageMode}}"></image>
+        <image a:else class="tabui-tabbar-item-image" style="color:{{active == idx ? activeColor : color}}"></image>
+        <image a:if="{{item.style === 'circle'}}"
+               class="tabui-tabbar-middle-circle"
+               style="width:{{item.iconSize}}rpx;height:{{item.iconSize}}rpx;margin-left:-{{0.5*item.iconSize}}rpx;color:{{active == idx ? activeColor : color}}"
+               src="{{active == idx ? item.activeIconPath : item.iconPath}}"
+               mode="{{imageMode}}"></image>
+        <view style="font-size:{{fontSize}}rpx; color:{{active == idx ? activeColor : color}}">{{item.name}}</view>
+        <view a:if="item.badge" class="tabui-tabbar-badge">{{item.badge}}</view>
+        <view a:if="item.redDot" class="tabui-tabbar-reddot">{{item.badge}}</view>
+    </view>
+</view>
