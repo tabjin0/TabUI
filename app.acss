@@ -1,0 +1,45 @@
+@font-face {
+    font-family: 'taopiaopiao';  /* project id 2014511 */
+    src: url('//at.alicdn.com/t/font_2014511_cv47pob9zuo.eot');
+    src: url('//at.alicdn.com/t/font_2014511_cv47pob9zuo.eot?#iefix') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_2014511_cv47pob9zuo.woff2') format('woff2'),
+    url('//at.alicdn.com/t/font_2014511_cv47pob9zuo.woff') format('woff'),
+    url('//at.alicdn.com/t/font_2014511_cv47pob9zuo.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_2014511_cv47pob9zuo.svg#iconfont') format('svg');
+}
+
+.tabjin-iconfont {
+    font-family: taopiaopiao !important;
+}
+
+.tab-icon-coupon:before {
+    content: '\e001';
+}
+
+.tab-icon-create:before {
+    content: '\e936';
+}
+
+.tab-icon-like:before {
+    content: '\e8ab';
+}
+
+.tab-icon-edit:before {
+    content: '\e8ac';
+}
+
+.tab-icon-glass:before {
+    content: '\e8ad';
+}
+
+.tab-icon-eastereggs:before {
+    content: '\e8ae';
+}
+
+.tab-icon-safe:before {
+    content: '\e8af';
+}
+
+.tab-icon-help:before {
+    content: '\e8b0';
+}
